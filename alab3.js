@@ -23,23 +23,42 @@
 // Declare an arbitrary number, n.
 // Create a loop that searches for the next prime number, starting at n and incrementing from there.
 // As soon as you find the prime number, log that number and exit the loop.
-function isPrime(num) {
-    if (num <= 1) {
-        return false;
+// function isPrime(num) {
+//     if (num <= 1) {
+//         return false;
+//     }
+//     for (let i = 2; i <= Math.sqrt(num); i ++) {
+//     if  (num % i === 0) {
+//         return false;
+//     }
+//     }
+//     return true;
+// }
+// let n = 10;
+// let found = false;
+// while (!found) {
+//     n++;
+//     if (isPrime(n)) {
+//         console.log("next prime number:" + n);
+//         found = true;
+//     }
+// }
+
+let num = 6;
+    let count = 0;
+    let foundPrime = false;
+    while (!foundPrime) {
+        console.log(num++);
+        count++;
+        let isPrime = true;
+        for (let i = 2; i <= num / 2; i++) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && num > 1) {
+            console.log(num + " is prime");
+            foundPrime = true;
+        }
     }
-    for (let i = 2; i <= Math.sqrt(num); i ++) {
-    if  (num % i === 0) {
-        return false;
-    }
-    }
-    return true;
-}
-let n = 10;
-let found = false;
-while (!found) {
-    n++;
-    if (isPrime(n)) {
-        console.log("next prime number:" + n);
-        found = true;
-    }
-}
